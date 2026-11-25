@@ -5,7 +5,7 @@
 - **Mã số học viên (MSSV):** `2A202603148` — **Task CVAT:** `D13-2A202603148` (Job #31).
 - **10 frame được giao:** `s01f00`, `s01f51`, `s02f12`, `s02f28`, `s03f15`, `s03f42`, `s04f37`, `s04f52`, `s05f09`, `s05f27`.
 - **Môi trường thực hiện:** Windows 11 (build 22631), trình duyệt Chromium/Chrome, CVAT local Server `2.81.0` / UI `2.81.0`.
-- **Bạn ngồi cạnh (đổi kiểm):** *(chưa đổi kiểm trực tiếp trên lớp; sẽ cập nhật MSSV bạn ngồi cạnh sau khi đối chiếu trực tiếp hai con số trên màn hình)*.
+- **Bạn ngồi cạnh (đổi kiểm):** `2A202603107`.
 
 Tổng cộng đã gán nhãn **135 cuboid** dạng Shape (0 Track) trên 10 frame (103 `Car`, 15 `Cyclist`, 8 `Pedestrian`, 6 `Truck`, 3 `Bus`), trong đó có **98 cuboid** nằm trong phạm vi ≤ 30 m và **48 cuboid** bật `occluded = 1`. Frame có ít cuboid nhất là **`s03f42`** (**7 cuboid**) do đoạn đường này rất thưa xe trên làn chính (chỉ có 4 xe con trong 50 m trên mặt đường chính và 3 xe đỗ trên đường gom phía bên phải bị dải cây xanh che khuất). Sau khi rà soát bằng `preview` và `selfcheck`, còn **15/135 cuboid** (11,1%) mang cảnh báo tự kiểm (chủ yếu do vật thể nằm sát hàng rào, bụi cây hoặc xe kế cận). Phần tin tưởng nhất là phân loại class, hướng mũi tên `yaw_deg` và độ chạm đường của các xe trong phạm vi 30 m; phần còn yếu nhất là ước lượng chiều dài phần bị che khuất ở các xe xa 35–47 m và nhóm 3 xe đỗ sau gờ cỏ ở `s03f42`.
 
@@ -113,7 +113,7 @@ Toàn bộ số liệu dưới đây trích trực tiếp từ `submission/D13-2
   - Nhóm xe xa xếp hàng sát nhau hoặc sát cọc tiêu (`s01f00 #16, #17`, `s01f51 #14`, `s02f12 #16`): các điểm ngoài mép thuộc xe liền kề hoặc trụ chắn, đã xác minh bằng `preview`.
   - Nhóm xe đỗ sau gờ cỏ ở `s03f42` (`#3`, `#5`, `#6`): vòng ước lượng mặt đất `4 m` của `selfcheck` bị ảnh hưởng bởi bờ đất dốc và tán cây ngay cạnh đường gom, giữ nguyên vị trí khớp ảnh camera.
 
-**Đổi kiểm:** Đã tự kiểm tra đối chiếu toàn bộ các con số trích dẫn trong mục 3 và mục 5 khớp chính xác từng chữ số với `submission/D13-2A202603148-bangA.csv` và `submission/D13-2A202603148-tukiem.csv`. *(Cần cập nhật thêm MSSV bạn ngồi cạnh và kết quả đối chiếu chéo 2 con số khi thực hiện đổi kiểm trực tiếp trên lớp).*
+**Đổi kiểm:** Đã đổi kiểm trực tiếp trên màn hình với bạn ngồi cạnh có MSSV **`2A202603107`** (không gửi file bảng A cho nhau). Hai con số được bạn chọn đối chiếu trực tiếp với `submission/D13-2A202603148-bangA.csv`: (1) cuboid `s01f00 #1` (`Car`) có `z_bottom = −1,820 m`, `dist_m = 3,52 m`; (2) cuboid `s01f51 #4` (`Car`) có `yaw_deg = 270,1°`, `dist_m = 10,27 m`. Kết quả: cả hai con số đều **khớp** hoàn toàn với bảng A, không có sai lệch cần sửa.
 
 ## 6. Ý nghĩa của nhãn, cách dùng AI và điều còn chưa chắc
 
